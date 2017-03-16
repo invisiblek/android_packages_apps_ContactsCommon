@@ -282,6 +282,9 @@ public abstract class AccountType {
 
     public static Drawable getDisplayIcon(Context context, int titleRes, int iconRes,
             String syncAdapterPackageName) {
+        if (PhoneAccountType.ACCOUNT_TYPE.equals(accountType)) {
+            return context.getResources().getDrawable(R.drawable.phone_account);
+        }
         if (titleRes != -1 && syncAdapterPackageName != null) {
             final PackageManager pm = context.getPackageManager();
             return pm.getDrawable(syncAdapterPackageName, iconRes, null);
